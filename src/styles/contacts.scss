@@ -1,0 +1,67 @@
+.contact {
+  background: #f6f6f7;
+  padding: 1em;
+  margin: 1em auto;
+  &._open {
+    .contact-short {
+      display: none;
+    }
+    .contact-details {
+      // display: block;
+      // height: 200px;
+    }
+    .contact__open {
+      transform: rotate(-90deg) scaleY(2);
+    }
+  }
+
+  &__buttons {
+    display: block;
+    text-align: center;
+  }
+
+  &__btn {
+    display: inline-block;
+    padding: 0;
+    margin: .5em;
+    color: #007bff;
+    cursor: pointer;
+    &:hover {
+      color: #005cbf;
+    }
+  }
+
+  &__open {
+    transform: rotate(90deg) scaleY(2);
+    &:before {
+      font-size: 20px;
+      font-weight: bold;
+      content: ">";
+    }
+  }
+}
+
+.contact-short {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__item {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    &__img {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+}
+
+.contact-details {
+  // display: none;
+  // transition: height 0.5s ease-out 0.3s;
+  // height: 1px;
+  // overflow: hidden;
+}

@@ -1,0 +1,47 @@
+<div class="contact" ng-class="{'_open' : $ctrl.details}">
+  <div class="contact-short">
+    <p class="contact-short__item">{{ $ctrl.index  + 1 }} : {{ $ctrl.getFullName() }} ({{ $ctrl.item.email }}) {{ $ctrl.item.phone }}</p>
+    <img class="contact-short__img" ng-src="{{ $ctrl.item.picture.thumbnail }}"/>
+  </div>
+
+  <div class="contact-details" ng-if="$ctrl.details">
+    <div class="contact-details__item">
+      <img class="contact-short__img" ng-src="{{ $ctrl.item.picture.large }}"/>
+    </div>
+<!--     <editfield label="'Телефон'" field="$ctrl.item.phone">rrrr</editfield> -->
+    <div class="contact-details__item">
+       {{ $ctrl.item.name.first }} {{ $ctrl.item.name.last }}
+    </div>
+    <div class="contact-details__item">
+       Email: {{ $ctrl.item.email }}
+    </div>
+    <div class="contact-details__item">
+       Телефон: {{ $ctrl.item.phone }}
+    </div>
+    <div class="contact-details__item">
+      Возраст : {{ $ctrl.item.dob.age }}
+    </div>
+    <div class="contact-details__item">
+      Дата рождения : {{ $ctrl.item.dob.date }}
+    </div>
+    <div class="contact-details__item">
+      Адрес : {{ $ctrl.getAddress() }}
+    </div>
+  </div>
+
+  <form name="form" ng-su novalidate class="css-form contact-edit" ng-if="$ctrl.edit">
+    <label>Имя и фамилия:
+      <input type="text" ng-model="$ctrl.item.name.first" name="uNamefirst" required="" />
+      <input type="text" ng-model="$ctrl.item.name.last" name="uNameLast" required="" />
+    </label>
+    <br />
+    <div ng-show="form.$submitted || form.uName.$touched">
+      <div ng-show="form.uName.$error.required">Укажите имя и фамилию</div>
+    </div>
+    <button type="submit" ng-click="update($ctrl.item)">Сохранить</button>
+  </form>
+
+  <div class="contact__buttons">
+    <span ng-click="$ctrl.details = !$ctrl.details; " class="contact__btn contact__open"></span>
+  </div>
+</div>
